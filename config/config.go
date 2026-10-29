@@ -41,19 +41,19 @@ func Load() Config {
 
 	return Config{
 		GatewayPort:        gwPort,
-		OrderServicePort:   envOrDefault("ORDER_SERVICE_PORT", "8081"),
-		ProductServicePort: envOrDefault("PRODUCT_SERVICE_PORT", "8082"),
-		OrderServiceURL:    envOrDefault("ORDER_SERVICE_URL", "http://localhost:8081"),
-		ProductServiceURL:  envOrDefault("PRODUCT_SERVICE_URL", "http://localhost:8082"),
-		DBHost:             envOrDefault("DB_HOST", "localhost"),
-		DBPort:             envOrDefault("DB_PORT", "5432"),
-		DBUser:             envOrDefault("DB_USER", "postgres"),
+		OrderServicePort:   os.Getenv("ORDER_SERVICE_PORT"),
+		ProductServicePort: os.Getenv("PRODUCT_SERVICE_PORT"),
+		OrderServiceURL:    os.Getenv("ORDER_SERVICE_URL"),
+		ProductServiceURL:  os.Getenv("PRODUCT_SERVICE_URL"),
+		DBHost:             os.Getenv("DB_HOST"),
+		DBPort:             os.Getenv("DB_PORT"),
+		DBUser:             os.Getenv("DB_USER"),
 		DBPassword:         os.Getenv("DB_PASSWORD"),
-		DBName:             envOrDefault("DB_NAME", "orderdb"),
-		DBSSLMode:          envOrDefault("DB_SSLMODE", "disable"),
-		LogLevel:           envOrDefault("LOG_LEVEL", "info"),
-		AdminPassword:      envOrDefault("ADMIN_PASSWORD", "admin123"),
-		CustomerPassword:   envOrDefault("CUSTOMER_PASSWORD", "customer123"),
+		DBName:             os.Getenv("DB_NAME"),
+		DBSSLMode:          os.Getenv("DB_SSLMODE"),
+		LogLevel:           os.Getenv("LOG_LEVEL"),
+		AdminPassword:      os.Getenv("ADMIN_PASSWORD"),
+		CustomerPassword:   os.Getenv("CUSTOMER_PASSWORD"),
 	}
 }
 
